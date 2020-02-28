@@ -1,5 +1,9 @@
-// // A file is required to be in the root of the /src directory by the TypeScript compiler
-// import Reflect from 'core-js/es6/reflect';
+// import 'react-app-polyfill/ie11';
+
+
+// // // // A file is required to be in the root of the /src directory by the TypeScript compiler
+
+// import Reflect from 'core-js/es/reflect';
 
 // if (!String.prototype.startsWith) {
 //     String.prototype.startsWith = function (search, pos) {
@@ -63,3 +67,7 @@
 //       }
 //     }
 //   }
+
+
+
+//  import './polyfills'

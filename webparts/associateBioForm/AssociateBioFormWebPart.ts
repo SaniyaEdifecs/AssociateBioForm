@@ -1,4 +1,3 @@
-import 'core-js';
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -14,8 +13,11 @@ export interface IAssociateBioFormWebPartProps {
 }
 
 export default class AssociateBioFormWebPart extends BaseClientSideWebPart<IAssociateBioFormWebPartProps> {
-  
+
+
   public onInit(): Promise<void> {
+    
+    console.log("onInIt called");
     return super.onInit().then(_ => {
       sp.setup({
         spfxContext: this.context,
@@ -23,8 +25,10 @@ export default class AssociateBioFormWebPart extends BaseClientSideWebPart<IAsso
     });
   
     });
+    
   }
   public render(): void {
+    console.log("render called");
     const element: React.ReactElement<IAssociateBioFormProps > = React.createElement(
       AssociateBioForm,
       {
