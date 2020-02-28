@@ -1,7 +1,9 @@
+// import "core-js";
+// import '@pnp/polyfill-ie11';
 
-import '@pnp/polyfill-ie11';
-// import 'core-js';
+
 // import ProxyPolyfillBuilder from 'proxy-polyfill/src/proxy';
+// import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import styles from './AssociateBioForm.module.scss';
 import { useEffect, useState } from 'react';
@@ -14,7 +16,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import './CommonStylesheet.scss';
-// import "babel-polyfill"
+
 
 
 
@@ -50,7 +52,7 @@ const AssociateBioForm = (props) => {
         setBio(listItem[0]['Bio']);
       }
 
-    }, function (err) {
+    }, (err)=> {
       console.log("err", err);
     }).catch(function (err) { console.log(err) });
 
@@ -95,7 +97,7 @@ const AssociateBioForm = (props) => {
         getListData(filterCond);
         setUserId(response.Id);
         setDisableSubmit(true);
-      }, function (err) {
+      }, (err)=> {
         console.log("err", err);
       }).catch(function (err) { console.log(err) });
     }
@@ -133,7 +135,7 @@ const AssociateBioForm = (props) => {
       }).then(function (userPemission) {
         userAccess = !userPemission.value;
         setDisable(userAccess);
-      }, function (err) {
+      }, (err)=> {
         console.log("err", err);
       }).catch(function (err) { console.log(err) });
   };
@@ -161,7 +163,7 @@ const AssociateBioForm = (props) => {
           showSpinner(false);
           setTimeout(function () { window.location.reload(); }, 2000);
         }
-      }, function (err) {
+      }, (err)=> {
         console.log("err", err);
       }).catch(function (err) { console.log(err) });
 
@@ -173,7 +175,7 @@ const AssociateBioForm = (props) => {
           setOpen(true);
           setTimeout(function () { window.location.reload(); }, 2000);
         }
-      }, function (err) {
+      }, (err) =>{
         console.log("err", err);
       }).catch(function (err) { console.log(err) });
     }
@@ -189,9 +191,6 @@ const AssociateBioForm = (props) => {
           Thank you for filling out your information!
                </Alert>
       </Snackbar> :
-          <div>
-            hkhk11
-    
            <form onSubmit={handleSubmit} className={disable ? "disabled" : ""}>
               <PeoplePicker
                 context={props.context} ensureUser={true} defaultSelectedUsers={[defaultUser]} titleText="Associate Name" personSelectionLimit={1} showtooltip={true} isRequired={true} disabled={disable} selectedItems={getPeoplePickerItems} showHiddenInUI={false} principalTypes={[PrincipalType.User]} resolveDelay={500} />
@@ -200,7 +199,6 @@ const AssociateBioForm = (props) => {
               {error && <p className="errorText">This field is required</p>}
               <Button variant="contained" color="primary" disabled={disableSubmit} type="submit">Submit</Button>
             </form>
-          </div>
       }
     </div>
   );
